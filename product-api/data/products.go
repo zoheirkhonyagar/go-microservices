@@ -3,14 +3,14 @@ package data
 import "time"
 
 type Product struct {
-	ID          int
-	Name        string
-	Description string
-	Price       float32
-	SKU         string
-	CreateOn    string
-	UpdateOn    string
-	DeleteOn    string
+	ID          int     `json:"id"`
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Price       float32 `json:"price"`
+	SKU         string  `json:"sku"`
+	CreateOn    string  `json:"-"`
+	UpdateOn    string  `json:"-"`
+	DeleteOn    string  `json:"-"`
 }
 
 var productList = []*Product{
@@ -32,4 +32,8 @@ var productList = []*Product{
 		CreateOn:    time.Now().String(),
 		UpdateOn:    time.Now().String(),
 	},
+}
+
+func GetProducts() []*Product {
+	return productList
 }
